@@ -1,0 +1,78 @@
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  
+</head>
+
+<header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="/">Twitter Sentiment Analysis: India Elections 2019</a>
+        </div>
+      </nav>
+x`x</header>
+
+<body>
+  <div class="row">
+    <div class="col-md-6">
+      <h1></h1>
+      <div class="chart" id="timeseries" >
+        <script>
+            var graphs = {{plot1 | safe}};
+            Plotly.plot('timeseries',graphs,{});
+        </script>
+      </div>
+    </div>
+
+
+    <div class="col-md-6">
+      <h1>Public reactions towards across parties</h1>
+      <div class="chart" id="bargraph" >
+        <script>
+            var graphs = {{plot2 | safe}};
+            Plotly.plot('bargraph',graphs,{});
+        </script>
+      </div>
+    </div>
+
+
+  </div>
+
+
+  <h1>Wordcloud</h1>
+  <div class="chart" id="wordcloud">
+    <script>
+        var graphs = {{wordcloud | safe}};
+        Plotly.plot('wordcloud',graphs,{});
+    </script>
+  </div>
+
+  <div class = "row">
+    <div class="chart" id="piepie" class="col-md-6">
+      <script>
+          var graphs = {{pie | safe}};
+          Plotly.plot('piepie',graphs,{});
+      </script>
+    </div>
+
+    <div class="col-md-6">
+      <h1>Tweets distribution based on moods</h1>
+      <div class="chart" id="pie">
+        <script>
+            var graphs = {{plot | safe}};
+            Plotly.plot('pie',graphs,{});
+        </script>
+      </div>
+    </div>
+
+  </div>
+
+</body>
